@@ -66,7 +66,7 @@ get_header();
 				</div><!--.support-width-->
 			</div>
 		</div><!-- /#content -->
-		<?php get_sidebar(); ?>
+		
 	</div><!-- /.row -->
 </main><!-- /.container -->
 <?php get_footer(); ?>

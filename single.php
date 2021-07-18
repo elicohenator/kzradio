@@ -10,7 +10,7 @@
 			
 			<?php get_template_part('loops/single-post', get_post_format()); ?>
 		</div><!-- /#content -->
-		<?php get_sidebar(); ?>
+		
 	</div><!-- /.row -->
 </main><!-- /.container -->
 <?php get_footer(); ?>

@@ -127,7 +127,7 @@ function playerInit($) {
 		preload: 'auto',
 		keyEnabled: true,
 		remainingDuration: true,
-		consoleAlerts: false,
+		consoleAlerts: true,
 		warningAlerts: true,
 		errorAlerts: true,
 		toggleDuration: true,

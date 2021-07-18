@@ -169,7 +169,7 @@ get_header();
 			</div><!--#wrapper-schedule-->
 		</div><!-- /#content -->
 
-		<?php get_sidebar(); ?>
+		
 	</div><!-- /.row -->
 </main><!-- /.container -->
 <?php get_footer(); ?>

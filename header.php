@@ -16,8 +16,6 @@
 		<script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/theme/js/app.js"></script>
 
-		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/style.css" type="text/css" media="screen" />
-
 <script type="text/javascript"> <?php include_once('player-header.js'); ?> </script>
 <script type="text/javascript"> <?php include_once('animation.js'); ?> </script>
 
