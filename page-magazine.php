@@ -6,70 +6,38 @@
 get_header();
 ?>
 
-    
-    <div id="content" role="main">
-		<main id="main" class="magazine">
-            <div class="container-fluid about-wrapper" style="background-image: url('<?php the_post_thumbnail_url('full'); ?>')">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1><?php the_title(); ?></h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-						<?php
-							$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-							$args = array(
-								'post_type' => 'post',
-								'post_status' => 'publish',
-								'orderby' => 'date',
-								'order' => 'desc',
-								'posts_per_page' => '36',
-								'paged' => $paged
-							);
-							$query = new WP_Query( $args );
-							if ( $query->have_posts() ) {
-								echo '<div class="magazine-items-wrapper">';
-									while ( $query->have_posts() ) {
-										$query->the_post(); ?>
-										<div class="magazine-item">
-											<div class="img-wrapper">
-												<a href="<?php the_permalink(); ?>">
-													<?php the_post_thumbnail('magazine_lobby');?>
-												</a>
-												<?php $categories = get_the_category();
- 
-												if ( ! empty( $categories ) ) {
-													echo '<div class="items-cat">';
-														echo '<a href="'.get_category_link($categories[0]->term_id).'" class="item-cat">'.esc_html( $categories[0]->name ).'</a>';
-														if($categories[1]->name != '') echo '<a href="'.get_category_link($categories[1]->term_id).'" class="item-cat">'.esc_html( $categories[1]->name ).'</a>';
-													echo '</div>';
-												}?>
-											</div>
-											<div class="item-content-wrapper">
-												<h3 class="item-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-												<div class="item-excerpt">
-													<?php the_excerpt(); ?>
-												</div>
-												<div class="item-details">
-													<div class="item-author"><?php the_author(); ?></div>
-													<div class="item-date"><?php echo get_the_date(); ?></div>
-												</div>
-											</div>
-										</div>
-									<?php }
-								echo '</div>';
-								wp_reset_query();
-							}?>
-							
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php //get_sidebar(); ?>
-		</main>
+<main id="main">
+	<div id="content" role="main">
+		
+		<?php get_template_part('template-parts/nav-magazine'); ?>
+
+		<header class="magazine-heading image">
+		<h1>
+			<a href="/magazine/">
+				<img src="<?php echo get_template_directory_uri(); ?>/theme/images/magazine-logo.png" alt="מגזין הקצה" />
+			</a>
+		</h1>
+		</header>
+
+		<?php 
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+			$args = array(
+				'orderby' => 'date',
+				'order' => 'desc',
+				'post_type' => 'post',
+				'posts_per_page' => '36',
+				'paged' => $paged
+			);
+			$posts = get_posts($args);
+			if ($posts):
+				echo '<div class="module-posts"><ul class="list-posts">';
+					foreach ($posts as $post):
+						setup_postdata($post);
+						get_template_part('loops/index-post');
+					endforeach;
+				echo '</ul></div>';
+			endif; 
+		?>
 	</div>
-    
-</div>
+</main>
 <?php get_footer(); ?>
