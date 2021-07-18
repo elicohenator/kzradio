@@ -6,24 +6,31 @@ Used by index.php, category.php and author.php
 */
 ?>
 
-<article role="article" id="post_<?php the_ID()?>" <?php post_class("mb-5"); ?> >
-	<header>
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<p class="text-muted">
-			<i class="far fa-calendar-alt"></i>&nbsp;<?php b4st_post_date(); ?>&nbsp;|
-			<i class="far fa-user"></i>&nbsp; <?php _e('By ', 'b4st'); the_author_posts_link(); ?>&nbsp;|
-			<i class="far fa-comment"></i>&nbsp;<a href="<?php comments_link(); ?>"><?php printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), '', 'b4st' ), number_format_i18n( get_comments_number() ) ); ?></a>
-		</p>
-	</header>
+<?php 
+$cats = get_the_category();
+if ($cats):
+	$slug = $cats[0]->slug;
+endif;
+?>
+
+<li role="article" id="post_<?php the_ID(); ?>" <?php post_class(); ?>>
+	<figure>
+		<?php 
+			if (has_post_thumbnail()): 
+				the_post_thumbnail('large');
+			else: 
+				echo '<img src="'.get_template_directory_uri() . '/theme/images/magazine-placeholder.jpg" alt="KZradio Magazine">';
+			endif; 
+		?>
+	</figure>
 	<div>
-		<?php the_post_thumbnail(); ?>
-		<?php // if ( has_excerpt( $post->ID ) ) {
-			the_excerpt(); ?>
-			<p><a href="<?php the_permalink(); ?>">
-			<?php _e( '&hellip; ' . __('Continue reading', 'b4st' ) . ' <i class="fas fa-arrow-right"></i>', 'b4st' ) ?>
-			</a></p>
-		<?php // } else {
-			//the_content( __( '&hellip; ' . __('Continue reading', 'b4st' ) . ' <i class="fas fa-arrow-right"></i>', 'b4st' ) );
-		// } ?>
+		<?php kzr_print_tag_pill($post->ID); ?>
+		<a href="<?php the_permalink(); ?>">&nbsp;</a>
+		<?php kzr_print_post_categories(); ?>
+		
+		<h2><?php the_title(); ?></h2>
+		<?php echo '<p class="excerpt">' . get_the_excerpt() . '</p>' ?>
+
+		<span><strong><?php kzr_post_writers($post->ID); ?></strong> <?php the_date( 'd.m.Y', '', '' ); ?></span>
 	</div>
-</article>
+</li>

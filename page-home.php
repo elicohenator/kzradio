@@ -26,32 +26,32 @@ get_header();
 					<a href="<?php bloginfo('url'); ?>/schedule">ללוח השידורים המלא</a>
 				</div>
 
-				<div id="chart2020-banner" style="">
-					<a href="https://www.kzradio.net/magazine/best-of/26553">
-						<img class="desktop-only" src="<?php echo get_template_directory_uri(); ?>/theme/images/chart2020-banner2.png" alt="המצעד האלטרנטיבי השנתי של רדיו הקצה. ראשון 27.12, שידור חי מ-10:00-22:00." style="width: 100%;">
-						<img class="mobile-only" src="<?php echo get_template_directory_uri(); ?>/theme/images/chart2020-banner2-mobile.png" alt="המצעד האלטרנטיבי השנתי של רדיו הקצה. ראשון 27.12, שידור חי מ-10:00-22:00." style="width: 100%;">
+				<div id="magazine-banner" style="">
+					<a href="https://www.kzradio.net/magazine/">
+						<img class="desktop-only" src="https://staging.kzradio.net/wp-content/uploads/2021/07/magazine-homepage-banner.png" alt="מגזין הקצה - כותבות את מה ששומעים" style="width: 100%;">
+						<img class="mobile-only" src="https://staging.kzradio.net/wp-content/uploads/2021/07/magazine-homepage-banner-mobile.png" alt="מגזין הקצה - כותבות את מה ששומעים" style="width: 100%;">
 					</a>
 				</div>
 				<style>
-					#chart2020-banner img.mobile-only {
+					#magazine-banner img.mobile-only {
 						display: none;
 					}
 					@media (max-width: 767px){
-						#chart2020-banner {
+						#magazine-banner {
 							position: relative;
 							/*height: 300px;*/
 							overflow: hidden;
 						}
-						#chart2020-banner a {
+						#magazine-banner a {
 							display: block;
 						}
-						#chart2020-banner img.desktop-only {
+						#magazine-banner img.desktop-only {
 							display: none;
 						}
-						#chart2020-banner img.mobile-only {
+						#magazine-banner img.mobile-only {
 							display: block;
 						}
-						#chart2020-banner img {
+						#magazine-banner img {
 							position: relative;
 							/*height: 100%;*/
 							/*width: auto !important;*/
