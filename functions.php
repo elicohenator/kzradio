@@ -3,6 +3,11 @@
 All the functions are in the PHP files in the `functions/` folder.
 */
 
+if ( ! defined( '_KZR_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( '_KZR_VERSION', '1.1' );
+}
+
 require get_template_directory() . '/functions/cleanup.php';
 require get_template_directory() . '/functions/setup.php';
 require get_template_directory() . '/functions/enqueues.php';
@@ -18,9 +23,9 @@ require get_template_directory() . '/functions/magazine-functions.php';
 
 function header_scripts()
 {
-  wp_enqueue_style('home', get_template_directory_uri() . '/style-home.css', false, '29122019', 'all');
-  wp_enqueue_style('basic', get_template_directory_uri() . '/theme/css/basic.css', false);
-  wp_enqueue_style('css1', get_template_directory_uri() . '/theme/css/css1.css', false);
+  wp_enqueue_style('home', get_template_directory_uri() . '/style-home.css', false, _KZR_VERSION, 'all');
+  wp_enqueue_style('basic', get_template_directory_uri() . '/theme/css/basic.css', array(), _KZR_VERSION);
+  wp_enqueue_style('css1', get_template_directory_uri() . '/theme/css/css1.css', array(), _KZR_VERSION);
 }
 add_action('wp_enqueue_scripts', 'header_scripts', 100);
 add_image_size('dj_img', 240, 240, true);

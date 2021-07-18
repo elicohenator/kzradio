@@ -53,7 +53,7 @@
 			<div class="title">:Powered by</div>
 			<div class="icons-container">
 				<a href="https://www.bpm-music.com/" class="kz-social-icon" target="_blank">
-					<img src="https://www.kzradio.net/wp-content/uploads/2018/08/bpm@2x.png" title="BPM">
+					<img src="<?php the_field('powered_icon', 'options'); ?>" title="האוזן השלישית" style="height: 120px;">
 				</a>
 			</div>
 		</div>
