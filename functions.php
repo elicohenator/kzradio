@@ -166,7 +166,7 @@ if (function_exists('wpseo_use_page_analysis') && !current_user_can('administrat
 }
 
 add_filter('excerpt_length', function ($length) {
-  if (is_page_template('page-magazine.php')) {
+  if (is_page_template('page-templates/page-magazine.php')) {
     return 19;
   }
 });
@@ -175,7 +175,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 function new_excerpt_more()
 {
-  if (is_page_template('page-magazine.php')) {
+  if (is_page_template('page-templates/page-magazine.php')) {
     return "...";
   }
 }
