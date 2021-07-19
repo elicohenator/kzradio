@@ -1,3 +1,16 @@
+<script>	
+	var toggle_form = document.getElementById('toggleFormButton'),
+		search_form = document.getElementById('searchFormContainer');
+
+	function toggleSearch() {
+		if (toggle_form.classList.contains('close')) { 
+			search_form.classList.remove('small');
+		} else { 
+			search_form.classList.add('small');
+		}
+	}
+</script>
+
 <div class="nav-magazine-container">
   <nav class="nav-magazine">
     <?php
@@ -8,8 +21,8 @@
       ) );
     ?>
   </nav>
-  <div class="search-form small">
-    <span class="toggle-form"></span>
+  <div class="search-form small" id="searchFormContainer">
+    <span class="toggle-form" id="toggleFormButton" onclick="toggleSearch()"></span>
     <form action="/" method="get">
       <input type="text" name="s" id="search" value="" placeholder="חיפוש חופשי" />
     </form>

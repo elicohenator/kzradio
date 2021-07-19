@@ -25,7 +25,7 @@ get_header();
 				'orderby' => 'date',
 				'order' => 'desc',
 				'post_type' => 'post',
-				'posts_per_page' => '36',
+				'posts_per_page' => '244',
 				'paged' => $paged
 			);
 			$posts = get_posts($args);

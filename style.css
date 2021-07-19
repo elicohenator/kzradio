@@ -57,9 +57,10 @@ footer { margin-bottom: 73px; padding: 50px 1rem 75px; background-color: #000000
 
 /* Floating bar footer */
 .jp-time-holder { width:83%; }
-.player-row-style { background-color:black; color:white; height:80px;}
+.player-row-style { background-color:black; color:white; height:100px;}
 .jp-progress-override { width:80%;}
 .floating-bar { padding: 52px 0 0; font-family: Henri, arial, sans-serif; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 80; }
+.jp-title-holder { z-index: 79;}
 
 @media all and (max-width: 768px) {
 	.floating-bar { text-align: center; }
@@ -117,7 +118,6 @@ button { width: 150px; height: 50px; background-color: #ef303b; border: solid 2p
 	.od-item .show-name-wrapper { position: relative; }
 	.od-item .play { position: absolute; top: -5px; right: 100%; transform: translateX(-50%); height: 20px; width: 20px; opacity: 0.75; z-index: 3; cursor: pointer; transition: opacity .2s ease-in-out; }
 		.od-item .play:hover { opacity: 1; }
-		#post_17449 .od-item .play { right: auto; left: 30px; }
 
 .od-item .tags { display: flex; -webkit-display: flex; flex-flow: row wrap; align-items: flex-end; justify-content: flex-end; position: absolute; left: 0.5rem; bottom: 0.5rem; z-index: 1; text-align: left; max-width: 50%;}
   .od-item .tags .tag { border: 1px solid #fff; font-size: 12px; padding: 2px !important; margin: 0 2px 4px; font-weight: 400; text-decoration: none;}
@@ -521,6 +521,9 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 	.single-post-content > .wp-block-image.kz-full { max-width: calc(100% + 40px); margin-left: -20px; margin-right: -20px;}
 		.single-post-content > .wp-block-image.kz-full img { width: 100%; height: auto;}
 		.single-post-content figcaption {font-size: 12px; margin-top: 16px; margin-bottom: 36px; font-weight: 100; }
+
+.wp-block-buttons { justify-content: center;}
+.wp-block-buttons > .wp-block-button { margin: 0 .5em .5em;}
 	
 .post-footer { max-width: 460px; margin: 92px auto 36px; padding: 13px; border-top: 1px solid #000; }
 .post-footer .list-tags { position: static; }
@@ -605,7 +608,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 .list-posts li.category-articles figure { border-radius: 0 0 50% 50%;}
 
 .list-posts li.category-specials figure { height: 50%;}
-	.list-posts li.category-specials div { color: black;}
+	.list-posts li.category-specials div { color: black; background-color: rgba(255,255,255,0.6);}
 	.list-posts:not(.and-tags) li:hover div p.excerpt { opacity: 1; transform: translateY(0); margin-bottom: 15px; margin-top: 25px;}
 		
 .list-social { list-style: none; padding: 0; margin-bottom: 14px;} 
@@ -655,13 +658,16 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
 @media screen and (max-width:1599px) {
   #content.decade-chart .intro-strip .textual-content{margin-left:8%}
-  }
-  @media screen and (max-width:1399px) {
-  #content.decade-chart .intro-strip{padding:20px 140px 100px}
-  #content.decade-chart .lists-strip,#content.decade-chart .decade-cta{padding:20px 140px}
-  #content.decade-chart .lists-strip .list-col{padding:0 10px}
-  #content.decade-chart .intro-strip .textual-content{width:47%;margin-left:0}
-  }
+}
+@media screen and (max-width:1399px) {
+  	#content.decade-chart .intro-strip{padding:20px 140px 100px}
+  	#content.decade-chart .lists-strip,#content.decade-chart .decade-cta{padding:20px 140px}
+  	#content.decade-chart .lists-strip .list-col{padding:0 10px}
+  	#content.decade-chart .intro-strip .textual-content{width:47%;margin-left:0}
+	.list-posts div { padding: 32px 48px 24px;}
+	.list-posts h2 { font-size: 26px; }
+}
+
   @media screen and (max-width:1023px) {
   #content.decade-chart .intro-strip{padding:20px 80px 70px}
   #content.decade-chart .lists-strip{padding:20px 30px}
@@ -677,7 +683,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 	#episode-header #episode-meta h2.episode-title { font-size: 32px; }
 
   .jp-time-holder { width:83%; }
-	.player-row-style { background-color:black; color:white; height:80px; }
+	.player-row-style { background-color:black; color:white; height: 100px; }
 	.jp-progress-override { width:80%; }
 	.floating-bar { padding: 52px 0 0 0; font-family: Henri, arial, sans-serif; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 80; }
 
@@ -741,7 +747,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 	.hide-xs-down  { display: none !important; }
 	.jp-progress-override, .jp-time-holder { width:72%; }
 	.floating-bar { padding-top: 12px; padding-bottom: 0px; padding-right: 0px; font-family: Henri, arial, sans-serif; padding-left: 0px; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 80;  }
-	.player-row-style { background-color:black; color:white; padding-top:10px; }
+	.player-row-style { background-color:black; color:white; padding-top:0; }
 	.jp-title-holder { position:absolute; top:0px;}
 	.jp-audio .jp-interface { height: 60px; }
 	.jp-audio .jp-controls { padding-top:5px; }
@@ -777,9 +783,10 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 	.module-posts { padding: 28px 20px 48px; }
 	.list-posts li, .list-posts.and-tags li { flex-basis: 100%; margin: 0 10px 34px; padding-bottom: 85vw; }
 		.list-posts img { filter: none; }
-	.list-posts div { padding-left: 36px; padding-right: 36px; }
-	.list-posts h2 { font-size: 24px; }
+	.list-posts div { padding-left: 24px; padding-right: 24px; }
+	.list-posts h2 { font-size: 24px; margin-bottom: 38px; }
 	.list-posts li.category-specials div { background-color: rgba(255,255,255, 0.66); }
+	.list-posts:not(.and-tags) div p.excerpt { display: none;}
 
 	.article-header figure img { width: 100%; height: auto; padding-bottom: 10px; }
 	.article-header figure, .article-header figure.square { height: auto; width: 100%; padding: 0; }
@@ -797,4 +804,5 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 	.list-social li.title { width: 100%; margin-bottom: 12px; text-align: center; display: block; }
 
 	.module-recommendations h3 { font-size: 36px; }
+	.ivrita-switch { bottom: 100px !important; border-bottom-right-radius: 7px !important; }
 }

@@ -63,7 +63,7 @@
 			<div class="powered">
 				<div class="powered-label">Powered by</div>
 				<a href="https://www.ozenbar.com" class="kz-social-icon" target="_blank">
-					<img src="<?php the_field('powered_icon', 'options'); ?>" title="האוזן השלישית">
+					<img src="/wp-content/uploads/2021/07/logo-nagtiv-white-without-text1.png" title="האוזן השלישית">
 				</a>
 				<div class="adv-wrapper">
 					<!--<a href="https://pandazzz.co.il/" class="kz-social-icon adv-logo" target="_blank">

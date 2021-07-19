@@ -30,9 +30,11 @@ get_header();
         </div>
 
         <div id="magazine-banner" style="">
-          <a href="https://www.kzradio.net/magazine/">
-            <img class="desktop-only" src="https://staging.kzradio.net/wp-content/uploads/2021/07/magazine-homepage-banner.png" alt="מגזין הקצה - כותבות את מה ששומעים" style="width: 100%;">
-            <img class="mobile-only" src="https://staging.kzradio.net/wp-content/uploads/2021/07/magazine-homepage-banner-mobile.png" alt="מגזין הקצה - כותבות את מה ששומעים" style="width: 100%;">
+          <a href="/magazine/">
+			<figure><picture>
+                <source srcset="/wp-content/uploads/2021/07/magazine-homepage-banner-mobile.png" media="(max-width: 760px)">
+                <img src="/wp-content/uploads/2021/07/magazine-homepage-banner.png" alt="מגזין הקצה - כותבות את מה ששומעים" width="400" height="400" style="width: 100%;">
+            </picture></figure>
           </a>
         </div>
         <style>

@@ -1,7 +1,6 @@
 /* All */
 body { unicode-bidi:embed; font-size:18px; font-style:normal; font-weight:normal; line-height:1; }
 p {line-height:1.5;}
-p:last-of-type {margin-bottom:0;}
 a {color:inherit;}
 a:hover, a:focus {color:inherit;}
 img {max-width:100%; height:auto;}

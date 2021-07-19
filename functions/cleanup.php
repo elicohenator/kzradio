@@ -27,16 +27,3 @@ if (!function_exists('show_less_login_info')) {
   }
 }
 add_filter('login_errors', 'show_less_login_info');
-
-
-// Remove Query Strings From Static Resources
-
-if (!function_exists('b4st_remove_script_version')) {
-  function b4st_remove_script_version($src)
-  {
-    $parts = explode('?', $src);
-    return $parts[0];
-  }
-}
-add_filter('script_loader_src', 'b4st_remove_script_version', 15, 1);
-add_filter('style_loader_src', 'b4st_remove_script_version', 15, 1);

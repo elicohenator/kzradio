@@ -4,8 +4,7 @@ All the functions are in the PHP files in the `functions/` folder.
 */
 
 if ( ! defined( '_KZR_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_KZR_VERSION', '1.1' );
+	define( '_KZR_VERSION', '1.25' );
 }
 
 require get_template_directory() . '/functions/cleanup.php';
@@ -23,7 +22,7 @@ require get_template_directory() . '/functions/magazine-functions.php';
 
 function header_scripts()
 {
-  wp_enqueue_style('home', get_template_directory_uri() . '/style-home.css', false, _KZR_VERSION, 'all');
+  wp_enqueue_style('home', get_template_directory_uri() . '/style-home.css', array(), _KZR_VERSION);
   wp_enqueue_style('basic', get_template_directory_uri() . '/theme/css/basic.css', array(), _KZR_VERSION);
   wp_enqueue_style('css1', get_template_directory_uri() . '/theme/css/css1.css', array(), _KZR_VERSION);
 }

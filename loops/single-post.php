@@ -11,18 +11,16 @@ The Single Post
 	$orig_post_ID = get_the_ID(); ?>
 		<article role="article" id="post_<?php the_ID() ?>" <?php post_class('single-post-container') ?>>
 			<?php if (has_post_thumbnail()) :
-				$thumbnail = get_the_post_thumbnail_url();
+				$thumbnail = get_the_post_thumbnail_url(); 
+				$caption = get_post(get_post_thumbnail_id())->post_excerpt; //The Caption
 			else :
 				$thumbnail = "/wp-content/uploads/2018/11/pexels-photo-744318.jpeg";
+				$caption = '';
 			endif; ?>
 			<header class="article-header">
 				<figure class="<?php the_field('image_layout'); ?>">
 					<img src="<?php echo $thumbnail; ?>" alt="<?php echo esc_html(get_the_title()); ?>">
-					<?php 
-						$title = get_post(get_post_thumbnail_id())->post_title; //The Title
-						$caption = get_post(get_post_thumbnail_id())->post_excerpt; //The Caption
-						$description = get_post(get_post_thumbnail_id())->post_content; // The Description
-					?>
+					
 					<figcaption><span><?= $caption; ?></span></figcaption>
 				</figure>
 				<div>
@@ -67,17 +65,20 @@ The Single Post
 
 		<?php 
 			$related_posts = get_field('related_posts'); 
-			$remaining = 3 - count($related_posts);
+			$remaining = ($related_posts) ? 3 - count($related_posts) : 3;
 			$exclude = array($orig_post_ID);
-
-			$recPosts = get_posts(array(
-				'posts_per_page' => $remaining,
-				'order' => 'rand',
-				'exclude' => $exclude,
-				'fields' => 'ids'
-			));
-	
 			$finalPosts = array();
+
+			if ($remaining > 0):
+				$recPosts = get_posts(array(
+					'posts_per_page' => $remaining,
+					'order' => 'rand',
+					'exclude' => $exclude,
+					'fields' => 'ids'
+				));
+			endif;
+	
+			
 			foreach ($related_posts as $r_post):
 				array_push($finalPosts, $r_post['post']);
 			endforeach;
@@ -86,7 +87,7 @@ The Single Post
 				array_push($finalPosts, $r_post);
 			endforeach;
 
-			if ($recPosts): 
+			if ($finalPosts): 
 				echo '<article class="module-recommendations">';
 					echo '<h3>וואלק יש מצב שתעופ/י גם על אלו</h3>';
 					echo '<ul class="list-posts">';
