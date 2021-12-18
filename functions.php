@@ -4,7 +4,7 @@ All the functions are in the PHP files in the `functions/` folder.
 */
 
 if ( ! defined( '_KZR_VERSION' ) ) {
-	define( '_KZR_VERSION', '1.25' );
+	define( '_KZR_VERSION', '1.31' ); // 3.12.2021
 }
 
 require get_template_directory() . '/functions/cleanup.php';
@@ -104,6 +104,19 @@ function posts_in_writer_taxonomies($query)
   }
 }
 add_filter('pre_get_posts', 'posts_in_writer_taxonomies');
+
+
+/**
+ *  Set show limit in 'shows' taxonomy
+ */
+function shows_taxonomy_per_page_limit($query)
+{
+  if (is_tax('shows')) {
+    $query->set('posts_per_page', 10);
+    return $query;
+  }
+}
+add_filter('pre_get_posts', 'shows_taxonomy_per_page_limit');
 
 
 /**
@@ -249,8 +262,12 @@ function show_in_post($atts = array())
         $output .= '<a href="' . get_term_link($term) . '" class="data od-show-dj">' . $term->name . '</a>';
       }
       $output .= '<br />';
-      $output .= '<span class="data od-title"';
-      if (strpbrk(get_the_title($id), "אבגדהוזחטיכלמנסעפרקשתןםךףץ") == false) echo "style='direction: ltr'";
+      if (strpbrk(get_the_title($id), "אבגדהוזחטיכלמנסעפרקשתןםךףץ") == false) {
+		  $titleHe = " style='direction: ltr'";
+	  } else {
+		  $titleHe = "";
+	  }
+      $output .= '<span class="data od-title"' . $titleHe;
       $output .= '>';
       $output .= '<a href="' . get_the_permalink($id) . '">' . get_the_title($id) . '</a>';
       $output .= '</span><br/>';
@@ -370,3 +387,106 @@ function wrc_post_columns_display($columns)
   $columns['modified'] = 'Last Modified';
   return $columns;
 }
+
+
+add_action('wp_ajax_register_vote', 'register_vote');
+add_action('wp_ajax_nopriv_register_vote', 'register_vote');
+
+function register_vote()
+{
+  // verify nonce
+  wp_verify_nonce($_POST['security'], 'ajax_nonce');
+
+  // save fields to variables
+  $first_name = sanitize_text_field($_POST['first_name']);
+  $last_name = sanitize_text_field($_POST['last_name']);
+  $email = sanitize_email($_POST['email']);
+  $location = sanitize_text_field($_POST['location']);
+
+  $song1 = sanitize_text_field($_POST['song1']);
+  $song2 = sanitize_text_field($_POST['song2']);
+  $song3 = sanitize_text_field($_POST['song3']);
+  $song4 = sanitize_text_field($_POST['song4']);
+  $song5 = sanitize_text_field($_POST['song5']);
+  $song6 = sanitize_text_field($_POST['song6']);
+  $song7 = sanitize_text_field($_POST['song7']);
+  $song8 = sanitize_text_field($_POST['song8']);
+  $song9 = sanitize_text_field($_POST['song9']);
+  $song10 = sanitize_text_field($_POST['song10']);
+  $bestSong = sanitize_text_field($_POST['best_song']);
+  
+  $album1 = sanitize_text_field($_POST['album1']);
+  $album2 = sanitize_text_field($_POST['album2']);
+  $album3 = sanitize_text_field($_POST['album3']);
+  $album4 = sanitize_text_field($_POST['album4']);
+  $album5 = sanitize_text_field($_POST['album5']);
+  $album6 = sanitize_text_field($_POST['album6']);
+  $album7 = sanitize_text_field($_POST['album7']);
+  $album8 = sanitize_text_field($_POST['album8']);
+  $album9 = sanitize_text_field($_POST['album9']);
+  $album10 = sanitize_text_field($_POST['album10']);
+  $bestAlbum = sanitize_text_field($_POST['best_album']);
+
+  $movie = sanitize_text_field($_POST['movie']);
+  $series = sanitize_text_field($_POST['series']);
+  $note = sanitize_text_field($_POST['note']);
+
+  $newVote = array(
+    'post_title'    => $first_name.' '.$last_name,
+    'post_status'   => 'publish',
+    'post_type'   => 'vote',
+
+  );
+  $newVoteID = wp_insert_post($newVote);
+
+  update_field('first_name', $first_name, $newVoteID);
+  update_field('last_name', $last_name, $newVoteID);
+  update_field('email', $email, $newVoteID);
+  update_field('location', $location, $newVoteID);
+
+  update_field('song1', $song1, $newVoteID);
+  update_field('song2', $song2, $newVoteID);
+  update_field('song3', $song3, $newVoteID);
+  update_field('song4', $song4, $newVoteID);
+  update_field('song5', $song5, $newVoteID);
+  update_field('song6', $song6, $newVoteID);
+  update_field('song7', $song7, $newVoteID);
+  update_field('song8', $song8, $newVoteID);
+  update_field('song9', $song9, $newVoteID);
+  update_field('song10', $song10, $newVoteID);
+  update_field('best_song', $bestSong, $newVoteID);
+
+  update_field('album1', $album1, $newVoteID);
+  update_field('album2', $album2, $newVoteID);
+  update_field('album3', $album3, $newVoteID);
+  update_field('album4', $album4, $newVoteID);
+  update_field('album5', $album5, $newVoteID);
+  update_field('album6', $album6, $newVoteID);
+  update_field('album7', $album7, $newVoteID);
+  update_field('album8', $album8, $newVoteID);
+  update_field('album9', $album9, $newVoteID);
+  update_field('album10', $album10, $newVoteID);
+  update_field('best_album', $bestAlbum, $newVoteID);
+  
+  update_field('movie', $movie, $newVoteID);
+  update_field('series', $series, $newVoteID);
+  update_field('note', $note, $newVoteID);
+
+  // send some information back to the javascipt handler
+  $response = array(
+    'status' => '200',
+    'message' => 'OK',
+    'new_post_ID' => $newVoteID
+  );
+
+  // normally, the script expects a json respone
+  header( 'Content-Type: application/json; charset=utf-8' );
+  echo json_encode( $response );
+
+  exit; // important
+
+  die();
+}
+
+
+

@@ -37,24 +37,24 @@ The Single Post
 			</div>
 			<div class="post-footer">
 				<ul class="list-social">
-					<li class="title">אהבת? שתפ.י:</li>
+					<li class="title">אהבת? שתפ/י:</li>
 					<li>
-						<a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>&via=KZRnet" rel="noopener noreferrer" target="_blank">
+						<a href="https://twitter.com/intent/tweet?url=<?php echo get_the_permalink($orig_post_ID); ?>&text=<?php echo get_the_title($orig_post_ID); ?>&via=KZRnet" rel="noopener noreferrer" target="_blank">
 							<img src="<?php echo get_template_directory_uri(); ?>/theme/images/share-twitter.png" alt="Share On Twitter">בטוויטר
 						</a>
 					</li>
 					<li>
-						<a href="https://www.facebook.com/sharer.php?u=<?php the_permalink(); ?>" rel="noopener noreferrer" target="_blank">
+						<a href="https://www.facebook.com/sharer.php?u=<?php echo get_the_permalink($orig_post_ID); ?>" rel="noopener noreferrer" target="_blank">
 							<img class="share-facebook" src="<?php echo get_template_directory_uri(); ?>/theme/images/share-facebook.png" alt="Share On Facbook">בפייסבוק
 						</a>
 					</li>
 					<li>
-						<a href="https://wa.me/?text=<?php the_title(); ?>%20-%20<?php the_permalink(); ?>" rel="noopener noreferrer" target="_blank">
+						<a href="https://wa.me/?text=<?php echo get_the_title($orig_post_ID); ?>%20-%20<?php echo get_the_permalink($orig_post_ID); ?>" rel="noopener noreferrer" target="_blank">
 							<img class="share-whatsapp" src="<?php echo get_template_directory_uri(); ?>/theme/images/share-whatsapp.png" alt="Share On Whatsapp">בוואטסאפ
 						</a>
 					</li>
 					<li>
-						<a href="https://t.me/share/url?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" rel="noopener noreferrer" target="_blank">
+						<a href="https://t.me/share/url?url=<?php echo get_the_permalink($orig_post_ID); ?>&text=<?php echo get_the_title($orig_post_ID); ?>" rel="noopener noreferrer" target="_blank">
 							<img class="share-telegram" src="<?php echo get_template_directory_uri(); ?>/theme/images/share-telegram.png" alt="Share On Telegram">בטלגרם
 						</a>
 					</li>

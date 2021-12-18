@@ -20,6 +20,7 @@
 <script type="text/javascript"> <?php include_once('animation.js'); ?> </script>
 
 </head>
+
 <body <?php body_class(); ?>>
 
 <div class="container-fluid bg-dark" style="padding: 0;">
@@ -35,7 +36,6 @@
 					<img class="donate-image" src="https://www.kzradio.net/wp-content/uploads/2018/10/cat@2x.png"/>
 				</a>
 			</div>
-
 			<div class="header-main">
 				<div>
 					<a class="navbar-brand" href="/">
@@ -63,7 +63,7 @@
 			<div class="powered">
 				<div class="powered-label">Powered by</div>
 				<a href="https://www.ozenbar.com" class="kz-social-icon" target="_blank">
-					<img src="/wp-content/uploads/2021/07/logo-nagtiv-white-without-text1.png" title="האוזן השלישית">
+					<img src="/wp-content/uploads/2021/08/ozen-logo-header.png" title="האוזן השלישית">
 				</a>
 				<div class="adv-wrapper">
 					<!--<a href="https://pandazzz.co.il/" class="kz-social-icon adv-logo" target="_blank">

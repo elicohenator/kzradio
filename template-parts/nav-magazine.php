@@ -1,5 +1,5 @@
 <script>	
-	var toggle_form = document.getElementById('toggleFormButton'),
+	/*var toggle_form = document.getElementById('toggleFormButton'),
 		search_form = document.getElementById('searchFormContainer');
 
 	function toggleSearch() {
@@ -8,7 +8,7 @@
 		} else { 
 			search_form.classList.add('small');
 		}
-	}
+	}*/
 </script>
 
 <div class="nav-magazine-container">
@@ -22,7 +22,8 @@
     ?>
   </nav>
   <div class="search-form small" id="searchFormContainer">
-    <span class="toggle-form" id="toggleFormButton" onclick="toggleSearch()"></span>
+    <!--<span class="toggle-form" id="toggleFormButton" onclick="toggleSearch()"></span>-->
+	<span class="toggle-form" id="toggleFormButton"></span>
     <form action="/" method="get">
       <input type="text" name="s" id="search" value="" placeholder="חיפוש חופשי" />
     </form>

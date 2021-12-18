@@ -53,7 +53,7 @@
 			<div class="title">:Powered by</div>
 			<div class="icons-container">
 				<a href="http://www.third-ear.com/" class="kz-social-icon" target="_blank">
-					<img src="/wp-content/uploads/2021/07/logo-nagtiv-white-without-text1.png" title="האוזן השלישית" style="height: 120px;">
+					<img src="/wp-content/uploads/2021/07/logo-nagtiv-white-without-text1.png" title="האוזן השלישית" style="width: 100px; height: auto; object-fit: contain;">
 				</a>
 			</div>
 		</div>

@@ -203,9 +203,11 @@ function make_banners($curr, $next1, $next2, $next3) {
 </div>';
 }
 
-function get_curr_shows_impl() {
+function get_curr_shows_impl($date = null) {
     // Getting today and tomorrow schedules
-	$date = new DateTime("now", new DateTimeZone("Israel") );
+    if ($date == null) {
+		$date = new DateTime("now", new DateTimeZone("Israel"));
+	}
 	$hour = intval($date->format("H")) + intval($date->format("i")) / 60.0;
 	$daynum = intval($date->format("w"));
     $daynumTomorrow = ($daynum + 1) % 7;
@@ -236,7 +238,7 @@ function get_curr_shows_impl() {
 	foreach ($fromnow as &$value) {
 		$value = fill_show_details($value);
 	}
-	echo make_banners(
+	return make_banners(
 		make_main_banner($fromnow[0]),
 		make_next_banner($fromnow[1], 1),
 		make_next_banner($fromnow[2], 2),
@@ -244,8 +246,40 @@ function get_curr_shows_impl() {
 	);
 }
 
+function get_twoday_shows_json() {
+	$date = new DateTime("now", new DateTimeZone("Israel"));
+	$daynum = intval($date->format("w"));
+	$today = get_day_schedule($daynum)["times"] ?: array();
+	$tomorrow = get_day_schedule(($daynum + 1) % 7)["times"] ?: array();
+	
+	$chsh = array();
+	$changetimes = array_unique(array_merge(array_column($today, "starthour"), array_column($today, "endhour")), SORT_NUMERIC);
+	asort($changetimes, SORT_NUMERIC);
+	foreach ($changetimes as &$changetime) {
+		$changedate = $date->setTime($changetime, ($changetime * 60) % 60);
+		$chhtml = str_replace(array("\r\n", "\n\r", "\n", "\r", "\t"), " ", htmlspecialchars(get_curr_shows_impl($changedate)));
+		$chsh[] = array($changedate->format(DATE_ATOM), $chhtml);
+	}
+	
+	$date->modify('+1 day');
+	$changetimes = array_unique(array_merge(array_column($tomorrow, "starthour"), array_column($tomorrow, "endhour")), SORT_NUMERIC);
+	asort($changetimes, SORT_NUMERIC);
+	foreach ($changetimes as &$changetime) {
+		$changedate = $date->setTime($changetime, ($changetime * 60) % 60);
+		$chhtml = str_replace(array("\r\n", "\n\r", "\n", "\r", "\t"), " ", htmlspecialchars(get_curr_shows_impl($changedate)));
+		$chsh[] = array($changedate->format(DATE_ATOM), $chhtml);
+	}
+	$chshjson = json_encode($chsh, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
+
+	return $chshjson;
+}
+
+function html_twoday_shows_json() {
+	echo get_twoday_shows_json();
+}
+
 function get_curr_shows() {
-	get_curr_shows_impl();
+	echo get_curr_shows_impl(new DateTime("now", new DateTimeZone("Israel")));
 }
 
 function check_schedule_impl($shows) {
@@ -267,10 +301,13 @@ function check_schedule() {
 
 function html_curr_schedule() {
 	// $shows = get_schedule();
-	get_curr_shows_impl();
+	echo get_curr_shows_impl();
 	// echo '<$&$/>';
 	// check_schedule_impl($shows);
 }
+
+add_action('wp_ajax_html_twoday_shows_json', 'html_twoday_shows_json');
+add_action('wp_ajax_nopriv_html_twoday_shows_json', 'html_twoday_shows_json');
 
 add_action('wp_ajax_html_curr_schedule', 'html_curr_schedule');
 add_action('wp_ajax_nopriv_html_curr_schedule', 'html_curr_schedule');

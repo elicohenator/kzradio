@@ -16,7 +16,7 @@ get_header();
 								<?php the_title(); ?>
 							</h1>
 							<div class="shows-subtitle">
-								כל התכניות להאזנה
+								כל התוכניות להאזנה
 							</div>
 						</div>
 					</div>
@@ -25,16 +25,13 @@ get_header();
 							<?php /*<form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="shows-filter">*/ ?>
 							<form action="<?php echo site_url() ?>/last-shows #response" method="POST" id="shows-filter">
 								<div class="text-row row justify-content-center col-sm-12">
-									<input id="textsearch" type="text" name="free_search" placeholder="חיפוש לפי שם תכנית / שם אמן / שם שיר בפלייליסט" autocomplete="off" />
+									<input id="textsearch" type="text" name="free_search" placeholder="חיפוש לפי שם תוכנית / שם אמן/ית / שם שיר בפלייליסט" autocomplete="off" />
 								</div>
 								<div class="select-row row justify-content-center col-sm-12">
 
 									<div class="col-sm-12 col-md-4" style="text-align: center;">
 										<?php
-										$show_types = get_terms( array(
-											'taxonomy' => 'show_type',
-											'hide_empty' => false
-										));
+										$show_types = get_terms( array( 'taxonomy' => 'show_type', 'hide_empty' => false ));
 											if( $show_types ) :
 												echo '<select name="showtypesfilter"><option disabled selected value>סוג התוכנית:</option>';
 												foreach ( $show_types as $show_type ) :
@@ -47,10 +44,7 @@ get_header();
 
 									<div class="col-sm-12 col-md-4" style="text-align: center;">
 										<?php
-										$shows = get_terms( array(
-											'taxonomy' => 'shows',
-											'hide_empty' => false
-										));
+										$shows = get_terms( array( 'taxonomy' => 'shows', 'hide_empty' => false ));
 											if( $shows) :
 												echo '<select name="showsfilter"><option disabled selected value>שם התוכנית:</option>';
 												foreach ( $shows as $show ) :
@@ -63,12 +57,9 @@ get_header();
 
 									<div class="col-sm-12 col-md-4" style="text-align: center;">
 										<?php
-										$djs = get_terms( array(
-											'taxonomy' => 'djs',
-											'hide_empty' => false
-										));
+										$djs = get_terms( array( 'taxonomy' => 'djs', 'hide_empty' => false ));
 											if( $djs) :
-												echo '<select name="djsfilter"><option disabled selected value>שם השדרן:</option>';
+												echo '<select name="djsfilter"><option disabled selected value>שם השדרן/ית:</option>';
 												foreach ( $djs as $dj ) :
 													echo '<option value="' . $dj->term_id . '">' . $dj->name . '</option>';
 												endforeach;

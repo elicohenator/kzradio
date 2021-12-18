@@ -30,10 +30,16 @@ get_header();
         </div>
 
         <div id="magazine-banner" style="">
-          <a href="/magazine/">
+<!--           <a href="/magazine/">
 			<figure><picture>
                 <source srcset="/wp-content/uploads/2021/07/magazine-homepage-banner-mobile.png" media="(max-width: 760px)">
                 <img src="/wp-content/uploads/2021/07/magazine-homepage-banner.png" alt="מגזין הקצה - כותבות את מה ששומעים" width="400" height="400" style="width: 100%;">
+            </picture></figure>
+          </a> -->
+          <a href="/2021">
+			<figure><picture>
+                <source srcset="/wp-content/uploads/2021/12/banner-2021-mobile.jpg" media="(max-width: 760px)">
+                <img src="/wp-content/uploads/2021/12/banner-2021-desktop.jpg" alt="הצביעו למצעד האלטרנטיבי השנתי 2021" width="400" height="400" style="width: 100%;">
             </picture></figure>
           </a>
         </div>
@@ -191,7 +197,7 @@ get_header();
           </div>
           <!--.apps-and-form-->
 
-          <div class="atem">
+          <?php /*<div class="atem">
             <div class="textual-area">
               <div class="title-wrapper">
                 <h3 class="kz-big-title"><?php the_field('fb_title'); ?></h3>
@@ -208,7 +214,7 @@ get_header();
                 <a href="<?php echo $fb_url; ?>" class="cta-btn"><?php the_field('fb_cta_button_label'); ?></a>
               <?php } ?>
             </div>
-          </div>
+          </div>*/ ?>
           <!--.atem-->
         </div>
         <!--#ctas-strip-->
