@@ -65,6 +65,17 @@ function kzr_print_tag_pill($post_ID)
 }
 
 
+/**
+ * print ACF Link
+ */
+function printLink($link, $class) {
+  if ($link):
+    $link_target = $link['target'] ? $link['target'] : '_self';
+    $class = ($class) ? 'class="'.$class.'"' : '';
+    return '<a href="'.$link['url'].'" '.$class.' target="'.$link_target.'">'.$link['title'].'</a>';
+  endif;
+}
+
 /** 
  * Show only published posts on related posts
  */

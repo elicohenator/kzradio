@@ -20,144 +20,124 @@ get_header();
   <div class="row">
     <div id="content" class="home" role="main">
       <div id="wrapper-home">
-        <?php
-        $im_on_home_page = true;
-        get_curr_shows();
-        ?>
-
-        <div class="kz-title full-schedule-link">
-          <a href="<?php bloginfo('url'); ?>/schedule">ללוח השידורים המלא</a>
-        </div>
-
-        <div id="magazine-banner" style="">
-<!--           <a href="/magazine/">
-			<figure><picture>
-                <source srcset="/wp-content/uploads/2021/07/magazine-homepage-banner-mobile.png" media="(max-width: 760px)">
-                <img src="/wp-content/uploads/2021/07/magazine-homepage-banner.png" alt="מגזין הקצה - כותבות את מה ששומעים" width="400" height="400" style="width: 100%;">
-            </picture></figure>
-          </a> -->
-          <a href="/2021">
-			<figure><picture>
-                <source srcset="/wp-content/uploads/2021/12/banner-2021-mobile.jpg" media="(max-width: 760px)">
-                <img src="/wp-content/uploads/2021/12/banner-2021-desktop.jpg" alt="הצביעו למצעד האלטרנטיבי השנתי 2021" width="400" height="400" style="width: 100%;">
-            </picture></figure>
-          </a>
-        </div>
-        <style>
-          #magazine-banner img.mobile-only {
-            display: none;
-          }
-
-          @media (max-width: 767px) {
-            #magazine-banner {
-              position: relative;
-              /*height: 300px;*/
-              overflow: hidden;
-            }
-
-            #magazine-banner a {
-              display: block;
-            }
-
-            #magazine-banner img.desktop-only {
-              display: none;
-            }
-
-            #magazine-banner img.mobile-only {
-              display: block;
-            }
-
-            #magazine-banner img {
-              position: relative;
-              /*height: 100%;*/
-              /*width: auto !important;*/
-              max-width: none;
-              left: 50%;
-              transform: translateX(-50%);
-            }
-          }
-        </style>
-
-        <div class="broadcasters">
-          <div class="wrapper">
-            <h2 class="kz-title">מסובבים באולפן</h2>
-            <?php
-            $djs = get_terms(array(
-              'taxonomy' => 'djs',
-              'hide_empty' => false,
-              'meta_query'    => array(
-                'relation'    => 'AND',
-                array(
-                  'key'      => 'dont_show',
-                  'value'      => true,
-                  'compare'    => '!='
-                )
-              )
-            ));
-            shuffle($djs);
-            $djs = array_slice($djs, 0, 6);
-            ?>
-            <ul class="items">
-
-              <?php foreach ($djs as $dj) {
-                $dj_link = get_term_link($dj);
-                $dj_img_id = get_field('dj_photo', $dj);
-                $dj_img_small_id = get_field('dj_photo_small', $dj);
-                $dj_img_small = wp_get_attachment_image($dj_img_small_id, 'dj_img', '', array('alt' => $dj->name));
-                $dj_img = wp_get_attachment_image($dj_img_id, 'dj_img', '', array('alt' => $dj->name));
-              ?>
-                <li class="item <?php echo $dj_img_small_id; ?>">
-                  <a href="<?php echo esc_url($dj_link); ?>">
-                    <?php
-                    if ($dj_img_small_id)
-                      echo $dj_img_small;
-                    else
-                      echo $dj_img;
-                    ?>
-                    <span class="dj-name"><?php echo $dj->name; ?></span>
-                  </a>
-                </li>
-              <?php } ?>
-            </ul>
-            <!--.items-->
-            <div class="all-djs-reference">
-              זו רק רשימה אקראית, <a href="<?php bloginfo('url'); ?>/djs" class="all-djs-link">בואו להכיר את כולם!</a>
-            </div>
-
-          </div>
-          <!--.wrapper-->
-        </div>
-        <!--.broadcasters-->
-
-
-        <div class="on-demand-and-video">
-          <div class="on-demand">
-            <h2 class="kz-title">תכניות חדשות בארכיון</h2>
-            <div class="on-demand-items">
+        <?php if ( have_rows( 'homepage_sections' ) ) : ?>
+          <?php while ( have_rows('homepage_sections' ) ) : the_row(); ?>
+            <?php if ( get_row_layout() == 'schedule' ) : ?>
               <?php
-              $args = array('posts_per_page' => 8, 'post_type' => 'show');
-              $posts = get_posts($args);
-              foreach ($posts as $post) {
+                $im_on_home_page = true;
+                get_curr_shows();
+              ?>
 
-                get_template_part('loops/show');
-              }
-              wp_reset_postdata(); ?>
-            </div>
-            <!--.on-demend-items-->
-            <div class="want-more">
-              <a href="<?php bloginfo('url'); ?>/last-shows">לכל התכניות</a>
-            </div>
-          </div>
-          <!--.on-demend-->
-          <div class="kz-video">
-            <h2 class="kz-title"><?php the_field('video_title'); ?></h2>
-            <iframe class="kz-vid-iframe" width="782" height="476" src="<?php the_field('featured_video'); ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <div class="hold-on">
-              <a href="https://www.youtube.com/user/KZRadio">לערוץ היוטיוב של הקצה</a>
-            </div>
-          </div>
-        </div>
-        <!--on-demand-and-video-->
+              <div class="kz-title full-schedule-link">
+                <?php if (get_sub_field('link')): ?>
+                  <?= printLink(get_sub_field('link'), 'normal'); ?>
+                <?php endif; ?>
+              </div>
+
+            <?php elseif (get_row_layout() == 'banner'): ?>
+
+              <div id="magazine-banner">
+                <a href="<?php the_sub_field('link'); ?>">
+			            <figure><picture>
+                    <source srcset="<?php the_sub_field('mobile_image'); ?>" media="(max-width: 760px)">
+                    <img src="<?php the_sub_field('desktop_image'); ?>" alt="הצביעו למצעד האלטרנטיבי השנתי 2021" width="400" height="400" style="width: 100%;">
+                  </picture></figure>
+                </a>
+              </div>
+
+              <style>
+                #magazine-banner img.mobile-only { display: none; }
+                @media (max-width: 767px) {
+                  #magazine-banner { position: relative; overflow: hidden; }
+                    #magazine-banner a { display: block; }
+                    #magazine-banner img.desktop-only { display: none; }
+                    #magazine-banner img.mobile-only { display: block; }
+                  #magazine-banner img { position: relative; max-width: none; left: 50%; transform: translateX(-50%); }
+                }
+              </style>
+
+            <?php elseif (get_row_layout() == 'djs'): ?>
+
+              <div class="broadcasters">
+                <div class="wrapper">
+                  <h2 class="kz-title"><?php the_sub_field('title'); ?></h2>
+                  <?php
+                  $djs = get_terms(array(
+                    'taxonomy' => 'djs',
+                    'hide_empty' => false,
+                    'meta_query'    => array(
+                      'relation'    => 'AND',
+                      array(
+                        'key'      => 'dont_show',
+                        'value'      => true,
+                        'compare'    => '!='
+                      )
+                    )
+                  ));
+                  shuffle($djs);
+                  $djs = array_slice($djs, 0, 6);
+                  ?>
+                  <ul class="items">
+
+                    <?php foreach ($djs as $dj) {
+                      $dj_link = get_term_link($dj);
+                      $dj_img_id = get_field('dj_photo', $dj);
+                      $dj_img_small_id = get_field('dj_photo_small', $dj);
+                      $dj_img_small = wp_get_attachment_image($dj_img_small_id, 'dj_img', '', array('alt' => $dj->name));
+                      $dj_img = wp_get_attachment_image($dj_img_id, 'dj_img', '', array('alt' => $dj->name));
+                    ?>
+                      <li class="item <?php echo $dj_img_small_id; ?>">
+                        <a href="<?php echo esc_url($dj_link); ?>">
+                          <?php
+                          if ($dj_img_small_id)
+                            echo $dj_img_small;
+                          else
+                            echo $dj_img;
+                          ?>
+                          <span class="dj-name"><?php echo $dj->name; ?></span>
+                        </a>
+                      </li>
+                    <?php } ?>
+                  </ul>
+                  <div class="all-djs-reference">
+                    <?php the_sub_field('link_text'); ?> <?= printLink(get_sub_field('link_object'), 'all-djs-link'); ?>
+                  </div>
+
+                </div>
+              </div>
+
+            <?php elseif (get_row_layout() == 'on_demend_video'): ?>
+
+              <div class="on-demand-and-video">
+                <div class="on-demand">
+                  <h2 class="kz-title"><?php the_sub_field('title'); ?></h2>
+                  <div class="on-demand-items">
+                    <?php
+                    $args = array('posts_per_page' => 8, 'post_type' => 'show');
+                    $posts = get_posts($args);
+                    foreach ($posts as $post) {
+
+                      get_template_part('loops/show');
+                    }
+                    wp_reset_postdata(); ?>
+                  </div>
+                  <div class="want-more">
+                    <a href="<?php bloginfo('url'); ?>/last-shows">לכל התכניות</a>
+                  </div>
+                </div>
+                
+                <div class="kz-video">
+                  <h2 class="kz-title"><?php the_field('video_title'); ?></h2>
+                  <iframe class="kz-vid-iframe" width="782" height="476" src="<?php the_field('featured_video'); ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <div class="hold-on">
+                    <a href="https://www.youtube.com/user/KZRadio">לערוץ היוטיוב של הקצה</a>
+                  </div>
+                </div>
+              </div>
+
+            <?php endif; ?>
+          <?php endwhile; ?>
+        <?php endif; ?>
 
         <div id="ctas-strip">
           <div class="apps-and-form clearfix">
