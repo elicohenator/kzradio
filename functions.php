@@ -4,7 +4,7 @@ All the functions are in the PHP files in the `functions/` folder.
 */
 
 if ( ! defined( '_KZR_VERSION' ) ) {
-	define( '_KZR_VERSION', '1.31' ); // 3.12.2021
+	define( '_KZR_VERSION', '1.32.15' ); // 3.12.2021
 }
 
 require get_template_directory() . '/functions/cleanup.php';

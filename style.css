@@ -7,7 +7,6 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400&display=swap');
 
 /* Fonts */
 /* ==============================================*/
@@ -363,10 +362,11 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
 
 /* Chart Container */
-.chart-container { background-repeat-y: repeat; background-size: contain; color: #3F3C38;}
+.chart-container { background-repeat-y: repeat; background-size: contain; color: var(--2022sand);}
   .chart-container .chart-content { max-width: 1200px; width: 100%; margin: 0 auto; padding: 1rem;  position: relative; }
   .chart-container .image-header img { width: 100%; }
   .chart-container .content { display: flex; -webkit-display: flex; flex-flow: row wrap; justify-content: space-between; padding: 2rem 0;}
+  .chart-container .details input { border: 4px solid var(--2022black);}
     .chart-container .content .header { font-size: 36px; font-weight: bold; text-align: center; color: #fdfee9; padding: 0 1rem 2px; background-color: #3f3c38; max-width: 250px; }
     .chart-container .content p { max-width: 329px; font-size: 16px; line-height: 1.5; color: #3F3C38; margin: 1rem 0; }
     .chart-container .content .side img { width: 100%; }
@@ -822,14 +822,19 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     --mustard: #e3b80e;
     --red: #fc0c2e;
     --blue: #3E9ddb;
+
+    --2022red: #d61d3c;
+    --2022sand: #d9cbb7;
+    --2022black: #413d3f;
   }
 
 
   #red-bg-wrapper {
-    background-image: url('/wp-content/themes/kzradio/theme/images/chart-2021.png');
+    background-image: url('/wp-content/themes/kzradio/theme/images/chart_22_bg.png');
     background-repeat: no-repeat;
     background-position: top center;
-    background-color: #EDc476;
+    background-color: var(--2022sand);
+    padding-bottom: 250px;
   }
 
   .chart-mobile-bg {
@@ -837,25 +842,24 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
   }
 
   .chart2020 .chart-container {
-    max-width: 1070px;
-	padding-top: 1285px;
+    max-width: 1200px;
+	  padding-top: 1285px;
     margin: 0 auto 120px;
     background: transparent;
-    font-family: 'Karantina', cursive;
   }
 
   .chart-container .chart-content {
     max-width: none;
-    color: var(--brown);
-	font-family: 'Karantina', cursive;
   }
 
   .chart2020 input,
   .chart2020 textarea {
-    border: 2px solid var(--brown);
-    background-color: var(--mustard);
-    border-radius: 99px;
+    border: none;
+    background-color: var(--2022sand);
+    color: var(--2022black);
   }
+
+  .chart2020 table input { margin-bottom: 4px;}
 
   .chart2020 textarea {
     resize: none;
@@ -871,20 +875,18 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
   .chart2020 .form-wrapper .songs-title,
   .chart2020 .form-wrapper .albums-title,
   .fakeSubmit {
-    display: inline-block;
-    position: relative;
+    text-align: center;
     margin-bottom: 30px;
     padding: 0 30px 5px;
     border-radius: 99px;
-    font-size: 67px;
-    font-weight: 400;
-    color: var(--mustard);
-    background: var(--brown);
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--2022black);
   }
 
   .chart2020 .form-wrapper p {
-    font-size: 36px;
-    font-weight: 300;
+    font-size: 25px;
+    color: var(--2022sand);
     margin-top: 2rem;
     line-height: 1;
     max-width: 100%;
@@ -892,7 +894,9 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
   .chart2020 .form-wrapper .notes {
     font-weight: 300;
-    font-size: 36px;
+    font-size: 25px;
+    text-align: center;
+    color: var(--2022sand);
     list-style: none;
     padding-right: 0;
   }
@@ -902,19 +906,11 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
   }
 
   .chart2020 .form-wrapper .notes li:before {
-    content: "×";
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 12px;
-    font-size: 36px;
+    display: none;
   }
 
   .chart-container .content .side {
-    flex-basis: 45%;
-    padding-left: 25px;
-    font-size: 36px;
-    font-weight: 300;
-    line-height: 1;
+    flex-basis: 45%; font-size: 36px; font-weight: 300; line-height: 1;
   }
 
   .fakeSubmit {
@@ -922,25 +918,25 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     width: auto;
     height: auto;
     border: none;
+    background: none;
   }
 
   .chart2020 .form-wrapper .text {
-    max-width: 900px;
-    margin: 0 auto 28vw;
+    margin: 100px auto 100px;
   }
   
 	.chart2020 .form-wrapper .text.thanks { max-width: 600px; }
 
   .chart2020 .form-wrapper .text p.strong.red {
-    color: var(--red);
-    font-size: 58px;
+    color: var(--2022black);
+    font-size: 36px;
     font-weight: 400;
-    margin: 0;
+    margin: 0 0 12px;
   }
 
   .chart2020 .form-wrapper .text p.strong {
     line-height: 1;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 400;
     margin-top: 0;
   }
@@ -972,7 +968,9 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     .chart2020 .form-wrapper p,
     .chart2020 .form-wrapper .notes,
     .chart2020 .form-wrapper .notes li::before {
-      font-size: 28px;
+      font-size: 25px;
+      color: var(--2022sand); 
+      text-align: center;
     }
 
     .chart2020 .chart-container input,

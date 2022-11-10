@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Chart (Avi)
+ * Template Name: KZRadio Chart
  * The template for displaying the yearly form for the chart parade
  */
 
@@ -160,7 +160,7 @@ get_header();
                   <div class="buttons">
                     <!--<button id="ss-submit-fake" class="fakeSubmit" type="button" onclick="var req = document.getElementsByClassName('kz-req');var good = true;for (var i = 0; i < req.length; ++i) {var bad = req[i].value.length === 0;req[i].style.backgroundColor = bad ? 'lightcoral' : 'white';if (good && bad) {good = false;req[i].focus();}}console.log('good='+good); if (good) {setTimeout(function() {jQuery('.send').fadeOut(200);jQuery('#ss-form').submit();}, 1000);}">שליחה</button> -->
                     <?php wp_nonce_field('register_vote', 'security'); ?>
-                    <button id="ss-submit-fake" class="fakeSubmit" type="button" onclick="checkform()">שליחה</button>
+                    <button id="ss-submit-fake" class="fakeSubmit" type="button" onclick="checkform()">שלח/י</button>
                     <button id="ss-submit" type="submit" style="display: none">שלחו</button>
                     <!-- <button id="ss-submit" type="submit">שלח/י</button> -->
                     <iframe id="hidden_iframe" style="display: none"></iframe>
@@ -171,10 +171,7 @@ get_header();
 
               <div class="send text text-center">
                 <p class="strong red">אנחנו מחלקים בין כל מי שישתף את סרטון ההצבעה שלנו בפייסבוק:</p>
-                <p class="strong">
-                  כרטיס לפסטיבל פרימוורה 2022, כולל טיסות ומלון!<br>
-                  ושני כרטיסי יחיד לפסטיבל אינדינגב 2022 + שני שוברים על סך 600 שקלים לרכישת תקליטים בחנויות האוזן השלישית
-                </p>
+                <p class="strong">כרטיס לפסטיבל פרימוורה 2022!</p>
                 <p>כל מה שתצטרכו לעשות כדי להיכנס לתחרות על הפרסים, הוא לשתף את <a href="https://www.facebook.com/watch/?v=655743805426659" target="_blank">הפוסט הבא</a> בפייסבוק ולכתוב לנו בקומנטס מדוע לדעתכם מגיע לכם/ן לזכות בכרטיס, ואולי תזכו. על ידי השתתפות בפעילות אתם מאשרים כי קראתם את <a href="https://docs.google.com/document/d/e/2PACX-1vT5MmDWoFT2L1qH4_5JW2NZgbCm_lVPHAoJ9rpafNX8dRLGErYolJf7jprnH2oPjumEElTIbnQQuG7-/pub" target="_blank">התקנון</a>. בהצלחה!</p>
                 <p>המצעד האלטרנטיבי השנתי של רדיו הקצה ישודר ביום ראשון 26.12.21 ,החל מ-10:00 בבוקר ועד 22:00 ברדיו הקצה - לו ניתן להאזין 24/7 פה: <a href="https://www.kzradio.net/">KZRADIO.NET</a> ובשלל אפליקציות הרדיו.</p>
               </div>
