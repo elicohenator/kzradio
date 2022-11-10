@@ -514,12 +514,17 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 	.single-post-content > h2, .single-post-content > h3, .single-post-content > h4, .single-post-content > h5, .single-post-content > h6 { max-width: 460px; margin-left: auto; margin-right: auto; margin-bottom: 28px; line-height: 1.66; line-height: 1.33; }
 	.single-post-content > p { font-size: 18px; font-weight: 100;}
 		.single-post-content > p.has-drop-cap:not(:focus):first-letter { font-weight: 700; font-style: italic; vertical-align: top; line-height: 0.9em; }
-	.single-post-content p a { transition: background-position 100ms ease-out 0s; background-image: linear-gradient(transparent 0px, rgb(238, 222, 255) 0px); background-position: 0px 0.9em; background-repeat: no-repeat; box-shadow: none; padding: 0px; text-decoration: none; pointer-events: all; }
-		.single-post-content p a:hover { background-position: 0px 0px;}
+	.single-post-content p a, .single-post-content > ul > li a, .single-post-content > ol > li a,
+  .single-post-content > h2 a, .single-post-content > h3 a, .single-post-content > h4 a, .single-post-content > h5 a, .single-post-content > h6 a
+  { transition: background-position 100ms ease-out 0s; background-image: linear-gradient(transparent 0px, rgb(238, 222, 255) 0px); background-position: 0px 0.9em; background-repeat: no-repeat; box-shadow: none; padding: 0px; text-decoration: none; pointer-events: all; }
+		.single-post-content p a:hover, .single-post-content ul > li a:hover, .single-post-content ol > li a:hover,
+    .single-post-content > h2 a:hover, .single-post-content > h3 a:hover, .single-post-content > h4 a:hover, .single-post-content > h5 a:hover, .single-post-content > h6 a:hover { background-position: 0px 0px;}
 	.single-post-content > blockquote { font-size: 28px; line-height: 1.33; font-weight: 700; font-style: italic; text-align: center; }
 	.single-post-content > .wp-block-image.kz-full { max-width: calc(100% + 40px); margin-left: -20px; margin-right: -20px;}
 		.single-post-content > .wp-block-image.kz-full img { width: 100%; height: auto;}
 		.single-post-content figcaption {font-size: 12px; margin-top: 16px; margin-bottom: 36px; font-weight: 100; }
+  .single-post-content > ul, .single-post-content > ol { max-width: 460px; margin-left: auto; margin-right: auto; margin-bottom: 28px; line-height: 1.66;}
+    .single-post-content > ul > li, .single-post-content > ol > li { font-size: 18px; font-weight: 100;}
 
 .wp-block-buttons { justify-content: center;}
 .wp-block-buttons > .wp-block-button { margin: 0 .5em .5em;}

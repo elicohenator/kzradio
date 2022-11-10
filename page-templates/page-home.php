@@ -37,12 +37,16 @@ get_header();
             <?php elseif (get_row_layout() == 'banner'): ?>
 
               <div id="magazine-banner">
-                <a href="<?php the_sub_field('link'); ?>">
+                <?php if (get_sub_field('link')): ?>
+                  <a href="<?php the_sub_field('link'); ?>">
+                <?php endif; ?>
 			            <figure><picture>
                     <source srcset="<?php the_sub_field('mobile_image'); ?>" media="(max-width: 760px)">
                     <img src="<?php the_sub_field('desktop_image'); ?>" alt="הצביעו למצעד האלטרנטיבי השנתי 2021" width="400" height="400" style="width: 100%;">
                   </picture></figure>
+                <?php if (get_sub_field('link')): ?>
                 </a>
+                <?php endif; ?>
               </div>
 
               <style>
