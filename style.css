@@ -365,8 +365,9 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 .chart-container { background-repeat-y: repeat; background-size: contain; color: var(--2022sand);}
   .chart-container .chart-content { max-width: 1200px; width: 100%; margin: 0 auto; padding: 1rem;  position: relative; }
   .chart-container .image-header img { width: 100%; }
-  .chart-container .content { display: flex; -webkit-display: flex; flex-flow: row wrap; justify-content: space-between; padding: 2rem 0;}
+  .chart-container .content { display: flex; -webkit-display: flex; flex-flow: row wrap; justify-content: space-between; padding: 3rem 0;}
   .chart-container .details input { border: 4px solid var(--2022black);}
+  .chart-container .details input:focus { border: 4px solid var(--2022black) !important; }
     .chart-container .content .header { font-size: 36px; font-weight: bold; text-align: center; color: #fdfee9; padding: 0 1rem 2px; background-color: #3f3c38; max-width: 250px; }
     .chart-container .content p { max-width: 329px; font-size: 16px; line-height: 1.5; color: #3F3C38; margin: 1rem 0; }
     .chart-container .content .side img { width: 100%; }
@@ -834,7 +835,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     background-repeat: no-repeat;
     background-position: top center;
     background-color: var(--2022sand);
-    padding-bottom: 250px;
+    padding-bottom: 350px;
   }
 
   .chart-mobile-bg {
@@ -842,8 +843,8 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
   }
 
   .chart2020 .chart-container {
-    max-width: 1200px;
-	  padding-top: 1285px;
+    max-width: 1150px;
+	  padding-top: 1150px;
     margin: 0 auto 120px;
     background: transparent;
   }
@@ -859,12 +860,11 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     color: var(--2022black);
   }
 
-  .chart2020 table input { margin-bottom: 4px;}
+  .chart2020 table input { margin-bottom: 12px;}
 
   .chart2020 textarea {
     resize: none;
-    min-height: 140px;
-    border-radius: 28px;
+    min-height: 200px;
   }
 
   .chart2020 .form-wrapper #songs-wrapper,
@@ -874,7 +874,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
   .chart2020 .form-wrapper .songs-title,
   .chart2020 .form-wrapper .albums-title,
-  .fakeSubmit {
+  .fakeSubmit, .outline-text {
     text-align: center;
     margin-bottom: 30px;
     padding: 0 30px 5px;
@@ -882,7 +882,15 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     font-size: 46px;
     font-weight: 700;
     color: var(--2022black);
+    -webkit-text-stroke: 0.35em var(--2022black);
   }
+
+  .chart2020 .form-wrapper .songs-title:before,
+  .chart2020 .form-wrapper .albums-title:before,
+  .fakeSubmit:before, .outline-text:before { content: attr(data-content);
+    -webkit-text-fill-color: var(--2022sand);
+    -webkit-text-stroke: 0;
+    position: absolute;}
 
   .chart2020 .form-wrapper p {
     font-size: 25px;
@@ -894,7 +902,8 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
   .chart2020 .form-wrapper .notes {
     font-weight: 300;
-    font-size: 25px;
+    font-size: 24px;
+    margin-bottom: 36px;
     text-align: center;
     color: var(--2022sand);
     list-style: none;
@@ -937,12 +946,15 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
   .chart2020 .form-wrapper .text p.strong {
     line-height: 1;
     font-size: 45px;
-    font-weight: 400;
-    margin-top: 0;
+    font-weight: 700;
+    margin-top: 0.5em;
   }
 
+  .chart2020 .form-wrapper .send p:not(.strong) { max-width: 800px; margin: 0 auto 1em; line-height: 1.25;}
+
   .chart2020 .form-wrapper .text a {
-    color: var(--blue);
+    color: var(--2022sand);
+    text-decoration: underline;
     font-weight: 400;
   }
 
@@ -953,7 +965,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
     .chart2020 .chart-container {
       padding-top: 90vw;
-      max-width: 74%;
+      max-width: 85%;
     }
   }
 
@@ -984,6 +996,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     #red-bg-wrapper {
       position: relative;
       background-image: none;
+      padding-bottom: 50px;
     }
 
     .chart2020 .form-wrapper #songs-wrapper,
@@ -1003,10 +1016,13 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
       height: 100%;
       margin-top: -1px;
       margin-bottom: -1px;
-      background-image: url('/wp-content/themes/kzradio/theme/images/chart2021-mobile-bg-center2.jpg');
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
+      background-image: url('/wp-content/themes/kzradio/theme/images/chart_22_center.png');
+      background-repeat: repeat-y;
+      background-size: contain;
     }
+
+    .outline-text:before { display: none }
+    .chart2020 .form-wrapper .text p.strong.red { color: var(--2022sand); -webkit-text-stroke: 0;}
   }
 
   @media screen and (max-width: 767px) {
@@ -1031,9 +1047,7 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
       border-width: 1.5px;
     }
 
-    .chart2020 .form-wrapper .text p.strong.red {
-      font-size: 40px;
-    }
+    .chart2020 .form-wrapper .text { margin-top: 50px;}
 
     .chart2020 .form-wrapper .text p.strong {
       font-size: 32px;
