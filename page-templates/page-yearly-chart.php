@@ -171,16 +171,16 @@ get_header();
 
               <div class="send text text-center">
                 <p class="strong red outline-text" data-content="אנחנו מחלקים בין כל מי שישתף את סרטון ההצבעה שלנו בפייסבוק:">אנחנו מחלקים בין כל מי שישתף את סרטון ההצבעה שלנו בפייסבוק:</p>
-                <p class="strong">כרטיס לפסטיבל פרימוורה 2022!</p>
-                <p>כל מה שתצטרכו לעשות כדי להיכנס לתחרות על הפרסים, הוא לשתף את <a href="https://www.facebook.com/watch/?v=655743805426659" target="_blank">הפוסט הבא</a> בפייסבוק ולכתוב לנו בקומנטס מדוע לדעתכם מגיע לכם/ן לזכות בכרטיס, ואולי תזכו. על ידי השתתפות בפעילות אתם מאשרים כי קראתם את <a href="https://docs.google.com/document/d/e/2PACX-1vT5MmDWoFT2L1qH4_5JW2NZgbCm_lVPHAoJ9rpafNX8dRLGErYolJf7jprnH2oPjumEElTIbnQQuG7-/pub" target="_blank">התקנון</a>. בהצלחה!</p>
+                <p class="strong">כרטיס לפסטיבל פרימוורה 2023!</p>
+                <p>כל מה שתצטרכו לעשות כדי להיכנס לתחרות על הפרסים, הוא לשתף את <a href="https://fb.watch/h0obqhWKAs/" target="_blank">הפוסט הבא</a> בפייסבוק ולכתוב לנו בקומנטס מדוע לדעתכם מגיע לכם/ן לזכות בכרטיס, ואולי תזכו. על ידי השתתפות בפעילות אתם מאשרים כי קראתם את <a href="https://docs.google.com/document/d/e/2PACX-1vSKXQJOtzFeUK1Kq9fmhZ1nob9WgaHFuZM1qpj2M1VGcT6NgPV1H5PtmF7X0xMnZRQtJBBdw81M1CjU/pub" target="_blank">התקנון</a>. בהצלחה!</p>
                 <p>המצעד האלטרנטיבי השנתי של רדיו הקצה ישודר ביום ראשון 26.12.21 ,החל מ-10:00 בבוקר ועד 22:00 ברדיו הקצה - לו ניתן להאזין 24/7 פה: <a href="https://www.kzradio.net/">KZRADIO.NET</a> ובשלל אפליקציות הרדיו.</p>
               </div>
 
               <div class="content text thanks text-center">
                 <p class="strong red">תודה רבה שהצבעת למצעד האלטרנטיבי השנתי של רדיו הקצה!</p>
                 <p>
-                  את המצעד נשדר ביום ראשון, 26.12, מ-10:00 בבוקר עד 22:00.<br>
-                  עד אז אפשר לשמוע את סיכומי השנה ואת שלל התכניות של השדרניות והשדרנים שלנו, וגם לקרוא את סיכומי השנה במגזין שלנו. הכל בכתובת: <a href="https://www.kzradio.net/">KZRADIO.NET</a>
+                  המצעד השנתי האלטרנטיבי של רדיו הקצה ישודר ביום ראשון 25.12.2022 החל מ-10:00 בבוקר ועד 22:00 ברדיו הקצה - <br>
+                  ובשלל אפליקציות הרדיו. <a href="https://www.kzradio.net/">KZRADIO.NET</a> לו ניתן להאזין 24/7 פה 
                 </p>
               </div>
               <script>
