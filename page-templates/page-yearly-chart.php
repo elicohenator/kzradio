@@ -13,11 +13,11 @@ get_header();
     <div id="red-bg-wrapper">
       <div class="chart-mobile-bg">
         <div class="chart-bg-top">
-          <img src="<?php echo get_template_directory_uri(); ?>/theme/images/chart_22_top.png')" alt="המצעד האלטרנטיבי השנתי של רדיו הקצה">
+          <img src="<?php echo get_template_directory_uri(); ?>/theme/images/chart_22_top2.png')" alt="המצעד האלטרנטיבי השנתי של רדיו הקצה">
         </div>
         <div class="chart-bg-center"></div>
         <div class="chart-bg-bottom">
-          <img src="<?php echo get_template_directory_uri(); ?>/theme/images/chart_22_bottom.png')" alt="">
+          <img src="<?php echo get_template_directory_uri(); ?>/theme/images/chart_22_bottom2.png')" alt="">
         </div>
       </div>
       <div class="chart-container form-wrapper">
