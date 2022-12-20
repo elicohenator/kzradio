@@ -21,7 +21,17 @@ get_header();
         </div>
       </div>
       <div class="chart-container form-wrapper">
+
         <div class="chart-content">
+          <div class="content">
+            <div class="text">
+              <p class="strong">נסגרה האפשרות להצביע!</p>
+              <p>המצעד האלטרנטיבי השנתי 2022 על כל תוצאותיו ישודר בראשון 25.12.22 החל מ10:00 בבוקר ועד 22:00 ברדיו הקצה. עד אז עדיין אפשר לשתף את <a href="https://tinyurl.com/2w4rpexe" target="_blank">הוידאו הזה</a>, לענות בגוף הפוסט על השאלה ששאלנו בו, ולנסות לזכות בכרטיס VIP לפסטיבל פרימוורה 2023 בברצלונה כולל טיסות ומלון - מתנת וורנר מיוזיק, או באחד משני כרטיסים לפסטיבל אינדינגב 2023 או באחד משני שוברים על סך 500 ש"ח לקניית תקליטים באוזן השלישית. בהצלחה ונשתמע במצעד</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-content" style="display: none;">
           <form id="ss-form" action="./" method="POST">
             <div class="details">
               <table style="width:100%">
