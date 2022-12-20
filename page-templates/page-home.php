@@ -132,7 +132,7 @@ get_header();
                 
                 <div class="kz-video">
                   <h2 class="kz-title"><?php the_field('video_title'); ?></h2>
-                  <iframe class="kz-vid-iframe" width="782" height="476" src="<?php the_field('featured_video'); ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <iframe class="kz-vid-iframe" width="782" height="476" src="<?php the_sub_field('featured_video'); ?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   <div class="hold-on">
                     <a href="https://www.youtube.com/user/KZRadio">לערוץ היוטיוב של הקצה</a>
                   </div>
