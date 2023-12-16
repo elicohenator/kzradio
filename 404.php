@@ -29,7 +29,7 @@ get_header();
                     </div>
                 </div>
             </div>
-            <?php get_sidebar(); ?>
+            
         </div>
     </main>
 </div><!-- div closing what -->

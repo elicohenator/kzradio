@@ -68,7 +68,7 @@ $email = get_field('email', $taxonomy . '_' . $term_id);
 				</div>
 			</div>
 		</div><!-- /#content -->
-		<?php get_sidebar(); ?>
+		
 	</div><!-- /.row -->
 </main><!-- /.container -->
 

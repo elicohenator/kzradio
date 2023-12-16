@@ -60,4 +60,5 @@ Register Navbar
 */
 
 register_nav_menu('navbar', __('Navbar', 'b4st'));
+register_nav_menu('magazine', __('Magazine Menu', 'b4st'));
 register_nav_menu('footer', __('Fotter Menu', 'b4st'));
