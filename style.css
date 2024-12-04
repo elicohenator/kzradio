@@ -372,10 +372,10 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
       .chart-container .content.thanks { display:none; justify-content: center; -ms-align-items: center; align-items: center;}
       .chart-container .content.thanks p { margin: 0 auto 2rem; max-width: 400px; }
 
-.chart-container input::-webkit-input-placeholder, .chart-container textarea::-webkit-input-placeholder { color: var(--black); }
-.chart-container input:-moz-placeholder, .chart-container textarea { color: var(--black); opacity: 1; }
-.chart-container input::-moz-placeholder, .chart-container textarea { color: var(--black); opacity: 1; }
-.chart-container input:-ms-input-placeholder, .chart-container textarea { color: var(--black); }
+.chart-container input::-webkit-input-placeholder, .chart-container textarea::-webkit-input-placeholder { color: rgba(0,0,0,.8); }
+.chart-container input:-moz-placeholder, .chart-container textarea { color: rgba(0,0,0,.8); opacity: 1; }
+.chart-container input::-moz-placeholder, .chart-container textarea { color: rgba(0,0,0,.8); opacity: 1; }
+.chart-container input:-ms-input-placeholder, .chart-container textarea { color: rgba(0,0,0,.8); }
 
 @-webkit-keyframes rotating {
   from { -webkit-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); }
@@ -854,7 +854,8 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
 
   .chart2020 .form-control:focus { border-bottom: 1px solid var(--black) !important}
 
-  .chart2020 .credits { font-family: "Miriam Libre", sans-serif; font-size: 16px; line-height: 20px; display: flex; flex-flow: row; justify-content: space-between; margin: 75px 0 15px;}
+  .chart2020 .credits { font-family: "Miriam Libre", sans-serif; font-size: 16px; line-height: 20px; display: flex; flex-flow: row; justify-content: space-between; align-items: center; margin: 75px 0 15px;}
+  .chart2020 .credits p { margin-bottom: 0;}
   .chart2020 .credits a { text-decoration: underline;}
 
   .chart2020 input,
@@ -926,26 +927,8 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     background: none;
     margin-top: 1em;
   }
-
-  .chart2020 .form-wrapper .text {
-    margin: 100px auto 0;
-  }
   
-	.chart2020 .form-wrapper .text.thanks { max-width: 600px; }
-
-  .chart2020 .form-wrapper .text p.strong.red {
-    color: var(--2023red);
-    font-size: 36px;
-    font-weight: 700;
-    margin: 0 auto 100px;
-  }
-
-  .chart2020 .form-wrapper .text p.strong {
-    line-height: 1;
-    font-size: 45px;
-    font-weight: 700;
-    margin: 1em 0;
-  }
+	.chart2020 .form-wrapper .text.thanks { font-size: 21px; line-height: 26px; }
 
   .chart2020 .form-wrapper .send p:not(.strong) { max-width: 800px; margin: 0 auto 1em; line-height: 1.25;}
 
@@ -955,11 +938,19 @@ body.page-template-page-support-us #main{max-width:100%;padding:60px 15px;color:
     font-weight: 400;
   }
 
+  @media screen and (min-width: 768px) {
+    .mobile-only { display: none;}
+  }
   @media screen and (max-width: 767px) {
+    
+    .mobile-only { display: block;}
     .mobile-hide { display: none;}
     .chart2020 .chart-container { padding: 45px 25px;}
+    
+    .chart-container .form-wrapper > div { margin: 1em 0;}
     .chart-container .chart-content form > div { flex-flow: column;}
     .chart-container .form-wrapper { margin-top: 32px;}
     .cols > * { width: 100%; flex-basis: 100%;}
+    .chart2020 .credits { margin-top: 35px;}
     .chart2020 .credits span:not(.mobile-hide) { display: block;}
   }

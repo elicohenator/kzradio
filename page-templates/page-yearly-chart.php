@@ -32,7 +32,9 @@ get_header();
                 <?php the_content(); ?>
               </div>
             </div>
-
+            <div class="mobile-only">
+              <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-badge-mobile2.png" width="260" height="25" alt="ניתן לבחור עד 23.12.2024 בחצות">
+            </div>
             <div class="form-wrapper">
               <img class="mobile-hide" src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-badge.png" width="165" height="251" alt="ניתן לבחור עד 23.12.2024 בחצות">
               <div>
@@ -74,7 +76,8 @@ get_header();
                     <div class="buttons">
                       <?php wp_nonce_field('register_vote', 'security'); ?>
                       <button id="ss-submit-fake" class="fakeSubmit" type="button" onclick="checkform()">
-                        <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-submit.png" width="500" height="45" alt="שליחה">
+                        <img class="mobile-hide" src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-submit.png" width="500" height="45" alt="שליחה">
+                        <img class="mobile-only" src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-submit-mobile.png" width="310" height="45" alt="שליחה">
                       </button>
                       <button id="ss-submit" type="submit" style="display: none">שלחו</button>
                       <!-- <button id="ss-submit" type="submit">שלח/י</button> -->
@@ -86,7 +89,7 @@ get_header();
   
               <div>
                 <div class="content text thanks text-center">
-                  <p class="strong red">תודה רבה שבחרת!</p>
+                  <p>תודה רבה שבחרת!</p>
                 </div>
               </div>
             </div>
