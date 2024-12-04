@@ -13,83 +13,81 @@ get_header();
     <div id="red-bg-wrapper">
       <div class="chart-container form-wrapper">
 
-        <img src="<?= get_template_directory_uri(); ?>/theme/images/chart_23_top2.png" alt="באנר ראשי!">
-
         <div class="chart-content" style="display: none;">
           <div class="content">
             <div class="text">
-              <p class="strong">נסגרה האפשרות להצביע!</p>
-              <p>המצעד האלטרנטיבי השנתי 2022 על כל תוצאותיו ישודר בראשון 25.12.22 החל מ10:00 בבוקר ועד 22:00 ברדיו הקצה. עד אז עדיין אפשר לשתף את <a href="https://tinyurl.com/2w4rpexe" target="_blank">הוידאו הזה</a>, לענות בגוף הפוסט על השאלה ששאלנו בו, ולנסות לזכות בכרטיס VIP לפסטיבל פרימוורה 2023 בברצלונה כולל טיסות ומלון - מתנת וורנר מיוזיק, או באחד משני כרטיסים לפסטיבל אינדינגב 2023 או באחד משני שוברים על סך 500 ש"ח לקניית תקליטים באוזן השלישית. בהצלחה ונשתמע במצעד</p>
+              <p>נסגרה האפשרות לבחור. בואו להקשיב ליום השידורים המיוחד שלנו, בראשון הקרוב מעשר בבוקר עד הלילה</p>
             </div>
           </div>
         </div>
 
         <div class="chart-content" style="display: block;">
           <form id="ss-form" action="./" method="POST">
-            <div>
-              <p>
-                השנה החלטנו לא לעשות מצעד כרגיל.<br>
-                מצעד מרגיש לנו חגיגי מדי כרגע. אבל אנחנו כן רוצים לעשות יום שידורים מיוחד בו נסכם את המוזיקה של השנה, עם האלבומים והשירים שהכי אהבתםן, ועם אלה שאנחנו הכי אהבנו. <br>
-                לא נעשה דירוג כרגיל, אבל נודיע במהלך היום מהם השיר והאלבום שקיבלו הכי הרבה קולות. <br>
-                וחשוב הרבה יותר מהכל - זה יהיה יום התרמה למשפחות החטופים.
-              </p>
+            <div class="cols">
+              <div>
+                <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-banner.png" width="420" height="417" alt="לא מצעד שנתי - סיכום שנתי ויום התרמה ברדיו הקצה למשפחות החטופים">
+              </div>
+              <div class="intro">
+                <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-button.png" width="382" height="45" alt="31.12.24 - יום ג' - 10:00-22:00">
+                <?php the_content(); ?>
+              </div>
             </div>
 
-            <img src="<?= get_template_directory_uri(); ?>/theme/images/chart_23_link2.png" alt="לינק להתרמה בקרוב!">
-
-            <div class="details">
-              <table style="width:100%">
-                <tr>
-                  <td style="padding-left: 5px;"><input type="text" class="ss-q-short kz-req" aria-label="שם פרטי" name="first_name" placeholder="שם פרטי (חובה)" /></td>
-                  <td style="padding-left: 5px;"><input type="text" class="ss-q-short kz-req" aria-label="שם משפחה" name="last_name" placeholder="שם משפחה (חובה)" /></td>
-                  <td style="padding: 0 5px;"><input type="text" class="ss-q-short kz-req" aria-label="מייל" name="email" placeholder="אימייל (חובה)" /></td>
-                  <td style="padding-right: 5px;"><input type="text" class="ss-q-short kz-req" aria-label="מקום מגורים" name="location" placeholder="עיר/ישוב (חובה)" /></td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="content fields">
-              <div id="songs-wrapper">
-                <h2 class="songs-title" data-content="בחרו את שיר השנה שלכם">בחרו את שיר השנה שלכם</h2>
-                <input type="text" class="ss-q-short kz-req" aria-td="שיר השנה - אמן" name="best_song" placeholder="" />
-              </div>
-
-              <div id="albums-wrapper">
-                <h2 class="albums-title" data-content="בחרו את אלבום השנה שלכם">בחרו את אלבום השנה שלכם</h2>
-                <input type="text" class="ss-q-short kz-req" aria-td="אלבום השנה - אמן" name="best_album" placeholder="" />
-              </div>
-
-              <div style="width: 100%; text-align: center;">
-                <p>
-                  בבקשה אל תבחרו יותר משיר אחד ואלבום אחד.
-                </p>
-                <hr style="border-color: #433f41; margin: 1em 0;">
-              </div>
-
-              <div class="text-center" style="width: 100%;">
-                <p>עוד משהו שתרצו לומר?</p>
-                <textarea class="ss-q-short" name="note" data-rows="5" style="max-width: 480px; margin-left: auto; margin-right: auto;"></textarea>
-
-
-                <div class="buttons">
-                  <?php wp_nonce_field('register_vote', 'security'); ?>
-                  <button id="ss-submit-fake" class="fakeSubmit" type="button" onclick="checkform()" data-content="שלח/י">שלח/י</button>
-                  <button id="ss-submit" type="submit" style="display: none">שלחו</button>
-                  <!-- <button id="ss-submit" type="submit">שלח/י</button> -->
-                  <iframe id="hidden_iframe" style="display: none"></iframe>
+            <div class="form-wrapper">
+              <img class="mobile-hide" src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-badge.png" width="165" height="251" alt="ניתן לבחור עד 23.12.2024 בחצות">
+              <div>
+                <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-form-title.png" width="500" height="45" alt="סיכום השנה שלך">
+                <div class="details">
+                  <div class="cols">
+                    <p><input type="text" class="ss-q-short kz-req" aria-label="שם פרטי" name="first_name" placeholder="שם פרטי (חובה)" /></p>
+                    <p><input type="text" class="ss-q-short kz-req" aria-label="שם משפחה" name="last_name" placeholder="שם משפחה (חובה)" /></p>
+                  </div>
+                  <div class="cols">
+                    <p><input type="text" class="ss-q-short kz-req" aria-label="מייל" name="email" placeholder="אימייל (חובה)" /></p>
+                    <p><input type="text" class="ss-q-short kz-req" aria-label="מקום מגורים" name="location" placeholder="עיר/ישוב (חובה)" /></p>
+                  </div>
+                  <p>&nbsp;</p>
+                  <p>
+                    <label for="best_song"><strong>שיר השנה שלכםן</strong> (כתבו את שם השיר בסדר הזה: Artist - Song)</label>
+                    <input type="text" class="ss-q-short kz-req" name="best_song" placeholder="" />
+                  </p>
+                  <p>
+                    <label for="best_album"><strong>אלבום השנה שלכםן </strong> (כתבו את שם האלבום בסדר הזה: Artist - Album)</label>
+                    <input type="text" class="ss-q-short kz-req" name="best_album" placeholder="" />
+                  </p>
+                  <p>
+                    <label for="movie"><strong>סרט השנה שלכםן </strong> (בשיתוף סינמסקופ)</label>
+                    <input type="text" class="ss-q-short" name="movie" placeholder="" />
+                  </p>
+                  <p>
+                    <label for="series"><strong>סדרת השנה שלכםן</strong></label>
+                    <input type="text" class="ss-q-short" name="series" placeholder="" />
+                  </p>
+                  <p>
+                    <label for="note"><strong>עוד משהו שתרצו לומר לנו?</strong></label>
+                    <textarea class="ss-q-short" name="note" data-rows="5"></textarea>
+                  </p>
+                </div>
+                
+                <div class="content fields">
+                  <div class="text-center" style="width: 100%;">
+                    <div class="buttons">
+                      <?php wp_nonce_field('register_vote', 'security'); ?>
+                      <button id="ss-submit-fake" class="fakeSubmit" type="button" onclick="checkform()">
+                        <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-submit.png" width="500" height="45" alt="שליחה">
+                      </button>
+                      <button id="ss-submit" type="submit" style="display: none">שלחו</button>
+                      <!-- <button id="ss-submit" type="submit">שלח/י</button> -->
+                      <iframe id="hidden_iframe" style="display: none"></iframe>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <img src="<?= get_template_directory_uri(); ?>/theme/images/chart_23_rope3.png" alt="יום התרמה">
-
-            <div>
-              <div class="send text text-center">
-                <p class="strong red">ניתן להצביע עד יום רביעי, ה-24.12.2023 בחצות</p>
-              </div>
-
-              <div class="content text thanks text-center">
-                <p class="strong red">תודה רבה שבחרת!</p>
+  
+              <div>
+                <div class="content text thanks text-center">
+                  <p class="strong red">תודה רבה שבחרת!</p>
+                </div>
               </div>
             </div>
 
@@ -170,6 +168,15 @@ get_header();
               // }
             </script>
           </form>
+
+          <div class="credits">
+            <div>
+              <img src="<?= get_template_directory_uri(); ?>/theme/images/logo-kzradio-transparent.png" width="142" height="41" alt="רדיו הקצה kzradio.net">
+            </div>
+            <div>
+              <p><span>עיצוב: <a href="https://www.ellayehudai.com/" target="_blank" rel="nofollow">אלה יהודאי</a></span> <span class="mobile-hide">|</span><span> תכנות: <a href="https://www.elicohenator.xyz" target="_blank" rel="nofollow">אלי כהן</a></span></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

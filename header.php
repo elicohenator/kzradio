@@ -8,16 +8,23 @@
 	}
 	?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<?php wp_head(); ?>
-		<link type="text/css" href="/css/jplayer/blue.monday/css/jplayer.blue.monday.css?reload2" rel="stylesheet" />
-		<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
-		<script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
-		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/theme/js/app.js"></script>
+	
+	<link type="text/css" href="/css/jplayer/blue.monday/css/jplayer.blue.monday.css?reload2" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<script type="text/javascript"> <?php include_once('player-header.js'); ?> </script>
-<script type="text/javascript"> <?php include_once('animation.js'); ?> </script>
+	<link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Miriam+Libre:wght@400..700&display=swap" rel="stylesheet">
+
+	<script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/theme/js/app.js"></script>
+
+	<script type="text/javascript"> <?php include_once('player-header.js'); ?> </script>
+	<script type="text/javascript"> <?php include_once('animation.js'); ?> </script>
 
 </head>
 
