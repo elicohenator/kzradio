@@ -28,7 +28,7 @@ get_header();
                 <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-banner.png" width="420" height="417" alt="לא מצעד שנתי - סיכום שנתי ויום התרמה ברדיו הקצה למשפחות החטופים">
               </div>
               <div class="intro">
-                <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-button.png" width="382" height="45" alt="31.12.24 - יום ג' - 10:00-22:00">
+                <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-button2.png" width="382" height="45" alt="31.12.24 - יום ג' - 10:00-22:00">
                 <?php the_content(); ?>
               </div>
             </div>
