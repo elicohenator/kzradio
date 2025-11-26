@@ -20,6 +20,8 @@
     ));
     ?>
   </div>
+<!-- <?php $shows_term = wp_get_post_terms($post->ID, 'shows'); ?>
+<a href="<?php echo get_term_link($shows_term[0]); ?>/feed">rss</a>  -->
 <?php
 else :
   get_template_part('loops/no-shows');

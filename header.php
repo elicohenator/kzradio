@@ -69,8 +69,8 @@
 
 			<div class="powered">
 				<div class="powered-label">Powered by</div>
-				<a href="https://www.ozenbar.com" class="kz-social-icon" target="_blank">
-					<img src="/wp-content/uploads/2021/08/ozen-logo-header.png" title="האוזן השלישית">
+				<a href="https://www.tel-aviv.gov.il/Visitors/ArtCulture/Pages/EinavCenter.aspx" class="kz-social-icon" target="_blank">
+					<img src="<?= get_template_directory_uri(); ?>/theme/images/logo-einav.png" title="מרכז ענב">
 				</a>
 				<div class="adv-wrapper">
 					<!--<a href="https://pandazzz.co.il/" class="kz-social-icon adv-logo" target="_blank">

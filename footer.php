@@ -52,8 +52,8 @@
 		<div class="thanks inner-credits mx-auto">
 			<div class="title">:Powered by</div>
 			<div class="icons-container">
-				<a href="http://www.third-ear.com/" class="kz-social-icon" target="_blank">
-					<img src="/wp-content/uploads/2021/07/logo-nagtiv-white-without-text1.png" title="האוזן השלישית" style="width: 100px; height: auto; object-fit: contain;">
+				<a href="https://www.tel-aviv.gov.il/Visitors/ArtCulture/Pages/EinavCenter.aspx" class="kz-social-icon" target="_blank">
+					<img src="<?= get_template_directory_uri(  ); ?>/theme/images/logo-einav.png" title="מרכז ענב" style="width: 140px; height: auto; object-fit: contain;">
 				</a>
 			</div>
 		</div>

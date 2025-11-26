@@ -327,6 +327,125 @@ add_shortcode('show_in_post', 'show_in_post');
 // add the filter
 add_filter( 'wpseo_opengraph_image', 'filter_wpseo_opengraph_image', 10, 1 );*/
 
+/**
+ * PER-SHOW PODCAST FEED - START
+ */
+function is_shows_feed() {
+    // Check only REQUEST_URI for the shows/*/feed pattern
+    if (isset($_SERVER['REQUEST_URI']) && preg_match('#/shows/.*?/feed#', $_SERVER['REQUEST_URI'])) {
+        return true;
+    }
+    
+    return false;
+}
+// Register a custom endpoint with a specific template
+function register_custom_xml_feed() {
+    add_rewrite_rule(
+        'shows/([^/]+)/rss\.xml$',
+        'index.php?shows=$matches[1]&feed=rss2',
+        'top'
+    );
+}
+add_action('init', 'register_custom_xml_feed');
+//flush_rewrite_rules();
+
+// Make show feeds podcast compatible
+function add_podcast_item_tags_to_rss() {
+    if (get_post_type() === 'show') {
+        $stream_url = get_field('stream_link', get_the_ID());
+        
+        if (!empty($stream_url)) {
+            echo '<enclosure url="' . esc_url($stream_url) . '" type="audio/mpeg" />';
+        }
+    }
+}
+add_action('rss2_item', 'add_podcast_item_tags_to_rss');
+
+// Custom description for shows feed
+function custom_shows_feed_description($description) {
+    if (is_shows_feed() && get_post_type() === 'show') {
+        $post_content = get_the_content();
+        $playlist_content = get_field('show_playlist', get_the_ID());
+        
+        $custom_description = $post_content;
+        
+        if (!empty($playlist_content)) {
+            $custom_description .= "\n\n" . $playlist_content;
+        }
+        
+        return $custom_description;
+    }
+    
+    return $description;
+}
+add_filter('the_excerpt_rss', 'custom_shows_feed_description');
+
+function custom_shows_feed_content($content) {
+    if (is_shows_feed() && get_post_type() === 'show') {
+        $post_content = get_the_content();
+        $playlist_content = get_field('show_playlist', get_the_ID());
+		$custom_content = $post_content;
+        
+		if (!empty($playlist_content)) {
+            $custom_content .= "\n\n" . $playlist_content;
+        }
+        
+        $custom_content = str_replace(["\r\n", "\r", "\n"], "<br />", $custom_content);
+
+		return $custom_content;
+    }
+    
+    return $content;
+}
+add_filter('the_content_feed', 'custom_shows_feed_content');
+
+function add_podcast_channel_tags_to_rss() {
+	$queried_object = get_queried_object();
+	$taxonomy = $queried_object->taxonomy;
+	$term_id = $queried_object->term_id;
+	$thumbnail_id = get_field('show_podcast_image', $taxonomy . '_' . $term_id);
+	
+	if(empty($thumbnail)) {
+    	$thumbnail = "https://pbcdn1.podbean.com/imglogo/image-logo/792389/KZ-Square-rw_1_.png";
+	} else {
+    	$thumbnail = wp_get_attachment_image_src($thumbnail_id ,'full')[0];
+	}
+    // Podcast-wide information
+    ?>
+    <itunes:subtitle><?php bloginfo('description'); ?></itunes:subtitle>
+    <itunes:summary><?php bloginfo('description'); ?></itunes:summary>
+    <itunes:author><?php bloginfo('name'); ?></itunes:author>
+    <itunes:type>episodic</itunes:type>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Music"/>
+    <itunes:image href="<?php echo esc_url($thumbnail); ?>" />
+    <podcast:locked>no</podcast:locked>
+    <?php
+}
+add_action('rss2_head', 'add_podcast_channel_tags_to_rss');
+
+// Add iTunes namespace to the RSS tag
+function add_podcast_ns_to_rss() {
+    // Only add podcast tags if we're in a shows feed
+    if (is_shows_feed()) {
+        // Add iTunes namespace to the RSS tag
+        echo 'xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" ';
+        echo 'xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" ';
+        echo 'xmlns:podcast="https://podcastindex.org/namespace/1.0" ';
+    }
+}
+add_action('rss2_ns', 'add_podcast_ns_to_rss');
+
+function add_podcast_feed_link() {
+    if (is_singular('show')) {  // Assuming 'show' is your post type
+        echo '<link rel="alternate" type="application/rss+xml" title="' . esc_attr(get_the_title()) . '" href="' . esc_url(get_permalink() . 'feed/') . '" />';
+    }
+}
+add_action('wp_head', 'add_podcast_feed_link');
+/*
+ * PER-SHOW PODCAST FEED - END
+ **/
+
 add_action('admin_footer', function () { ?>
   <script type="text/javascript">
     jQuery(document).ready(function($) {

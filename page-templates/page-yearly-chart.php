@@ -35,7 +35,7 @@ get_header();
             <div class="mobile-only">
               <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-badge-mobile2.png" width="260" height="25" alt="ניתן לבחור עד 23.12.2024 בחצות">
             </div>
-            <div class="form-wrapper">
+            <div class="form-wrapper" style="display: none;">
               <img class="mobile-hide" src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-badge.png" width="165" height="251" alt="ניתן לבחור עד 23.12.2024 בחצות">
               <div>
                 <img src="<?= get_template_directory_uri(); ?>/theme/images/chart-24-form-title.png" width="500" height="45" alt="סיכום השנה שלך">
